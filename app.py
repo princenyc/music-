@@ -1,9 +1,8 @@
 import streamlit as st
 import openai
 
-# OpenAI API Key
-OPENAI_API_KEY = "your_openai_api_key"  # Replace with your API key
-openai.api_key = OPENAI_API_KEY
+# OpenAI API Key from Streamlit secrets
+openai.api_key = st.secrets["openai"]["api_key"]
 
 # App Title
 st.title("Song Recommendation App")
