@@ -39,3 +39,6 @@ if song and artist:
     st.write(recommendations)
 else:
     st.write("Please enter a song and artist to get started.")
+def get_recommendations(song, artist):
+    # Return a dummy response for testing
+    return f"Here are some dummy recommendations for '{song}' by {artist}: [Song A, Song B, Song C]"
