@@ -16,10 +16,9 @@ artist = st.text_input("Enter the artist's name:")
 
 # Function to get recommendations using ChatCompletion
 def get_recommendations(song, artist):
-    messages = [
-        {"role": "system", "content": "You are a music recommendation expert who provides obscure but similar songs."},
-        {"role": "user", "content": f"Suggest 2-3 obscure songs that are similar to '{song}' by {artist}. Include the song title, artist name, a link (if available), and trivia about the artist."}
-    ]
+    # Return a dummy response for testing
+    return f"Here are some dummy recommendations for '{song}' by {artist}: [Song A, Song B, Song C]"
+
     try:
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
@@ -39,6 +38,3 @@ if song and artist:
     st.write(recommendations)
 else:
     st.write("Please enter a song and artist to get started.")
-def get_recommendations(song, artist):
-    # Return a dummy response for testing
-    return f"Here are some dummy recommendations for '{song}' by {artist}: [Song A, Song B, Song C]"
