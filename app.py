@@ -10,7 +10,7 @@ song = st.text_input("Enter the song name", placeholder="Enter the song name", k
 artist = st.text_input("Enter the artist's name", placeholder="Enter the artist's name", key="artist_input")
 
 # OpenAI API Key (Replace 'YOUR_API_KEY' with your actual key)
-openai.api_key = "YOUR_API_KEY"
+openai.api_key = "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"
 
 # Function to get recommendations
 def get_recommendations(song, artist):
