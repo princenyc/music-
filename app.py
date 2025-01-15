@@ -10,17 +10,19 @@ song = st.text_input("Enter the song name", placeholder="Enter the song name", k
 artist = st.text_input("Enter the artist's name", placeholder="Enter the artist's name", key="artist_input")
 
 # OpenAI API Key (Replace 'YOUR_API_KEY' with your actual key)
-openai.api_key = "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"
+openai.api_key = "YOUR_API_KEY"
 
 # Function to get recommendations
 def get_recommendations(song, artist):
     prompt = f"Recommend 2-3 obscure songs similar to '{song}' by '{artist}'."
-    response = openai.Completion.create(
-        engine="text-davinci-003",
-        prompt=prompt,
-        max_tokens=100
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant for song recommendations."},
+            {"role": "user", "content": prompt}
+        ]
     )
-    return response.choices[0].text.strip().split("\n")
+    return response['choices'][0]['message']['content'].strip().split("\n")
 
 # Button to submit
 if st.button("Get Recommendations", key="recommend_button"):
