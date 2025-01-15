@@ -24,7 +24,7 @@ def get_recommendations(song, artist):
             temperature=0.7,
             max_tokens=200
         )
-        return response['choices'][0]['message']['content'].strip()
+        return response.choices[0].message.content.strip()
     except Exception as e:
         return f"Error: {str(e)}"
 
@@ -36,4 +36,3 @@ if song and artist:
     st.write(recommendations)
 else:
     st.write("Please enter a song and artist to get started.")
-
