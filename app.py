@@ -1,3 +1,5 @@
+st.write(f"OpenAI Library Version: {openai.__version__}")
+
 import streamlit as st
 import openai
 
