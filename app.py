@@ -1,40 +1,26 @@
 import streamlit as st
-import openai
 
-# Display the OpenAI Library Version
-st.write(f"OpenAI Library Version: {openai.__version__}")
+# Title and instructions
+st.title("🎵 AI Music Recommendation App")
+st.write("Enter a song and artist to discover similar but obscure tracks!")
 
-# OpenAI API Key from Streamlit secrets
-openai.api_key = st.secrets["openai"]["api_key"]
+# User input fields
+song = st.text_input("Song Name", placeholder="Enter the song name")
+artist = st.text_input("Artist Name", placeholder="Enter the artist's name")
 
-# App Title
-st.title("Song Recommendation App")
+# Button to submit
+if st.button("Get Recommendations"):
+    st.write(f"Searching for recommendations based on: **{song}** by **{artist}**")
+import streamlit as st
 
-# User Input
-song = st.text_input("Enter a song title:")
-artist = st.text_input("Enter the artist's name:")
+# Title and instructions
+st.title("🎵 AI Music Recommendation App")
+st.write("Enter a song and artist to discover similar but obscure tracks!")
 
-# Function to get recommendations using ChatCompletion
-def get_recommendations(song, artist):
-    # Return a dummy response for testing
-    return f"Here are some dummy recommendations for '{song}' by {artist}: [Song A, Song B, Song C]"
+# User input fields
+song = st.text_input("Song Name", placeholder="Enter the song name")
+artist = st.text_input("Artist Name", placeholder="Enter the artist's name")
 
-    try:
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=messages,
-            temperature=0.7,
-            max_tokens=200
-        )
-        return response.choices[0].message.content.strip()
-    except Exception as e:
-        return f"Error: {str(e)}"
-
-# Display recommendations
-if song and artist:
-    st.write(f"You entered: {song} by {artist}")
-    st.write("Fetching recommendations...")
-    recommendations = get_recommendations(song, artist)
-    st.write(recommendations)
-else:
-    st.write("Please enter a song and artist to get started.")
+# Button to submit
+if st.button("Get Recommendations"):
+    st.write(f"Searching for recommendations based on: **{song}** by **{artist}**")
