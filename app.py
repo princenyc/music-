@@ -1,7 +1,8 @@
-st.write(f"OpenAI Library Version: {openai.__version__}")
-
 import streamlit as st
 import openai
+
+# Display the OpenAI Library Version
+st.write(f"OpenAI Library Version: {openai.__version__}")
 
 # OpenAI API Key from Streamlit secrets
 openai.api_key = st.secrets["openai"]["api_key"]
